@@ -1,0 +1,21 @@
+# Ignore model files
+resources/dataset/*.h5
+resources/dataset/*.txt
+
+# Ignore virtual environment
+venv/
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.idea/
+.DS_Store
+
+# Ignore dependency files
+requirements.txt

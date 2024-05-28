@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insect Classification Result</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      .container {
+        background-image: linear-gradient(147deg, #166d3b 0%, #000000 74%);
+        width: 100vm;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        color: #f8fae5;
+        font-weight: bold !important;
+        font-family: sans-serif;
+      }
+      #result {
+        color: white;
+        font-size: 24px;
+        font-family: Arial, sans-serif;
+      }
+      .navbar {
+        background-color: #185834 !important;
+        width: 100vw;
+      }
+      .navbar-brand,
+      .nav-link {
+        color: #f8fae5 !important;
+      }
+      .container1 {
+        background-image: linear-gradient(147deg, #166d3b 0%, #000000 74%);
+        width: 100vw;
+        height: 100vh;
+        padding-top: 60px;
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-bottom: 0%;
+      }
+    </style>
+  </head>
+  <body class="container">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="#">
+        <img
+          src="insects.png"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        InSeek
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon text-light"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container1 py-5">
+      <header class="text-center">
+        <h1 class="display-4">Insect Classifier Result</h1>
+      </header>
+
+      <div class="row py-4">
+        <div class="col-lg-6 mx-auto">
+          <div class="image-area mt-4">
+            <img
+              alt=""
+              class="img-fluid rounded shadow-sm mx-auto d-block"
+              id="image"
+              name="image"
+              src="#"
+            />
+          </div>
+          <div id="result" class="text-center mt-4"></div>
+          <div class="text-center mt-4">
+            <button class="btn btn-primary" onclick="returnToIndex()">
+              Back to Classify More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function displayResult() {
+        const params = new URLSearchParams(window.location.search);
+        const resultClass = params.get("class");
+        const resultImage = params.get("image");
+
+        if (!resultClass || !resultImage) {
+          alert("Error: Missing classification result.");
+          return;
+        }
+
+        document.getElementById("result").innerText = `${resultClass}`;
+        document.getElementById(
+          "image"
+        ).src = `data:image/jpeg;base64,${resultImage}`;
+      }
+
+      function returnToIndex() {
+        window.location.href = "index.html";
+      }
+
+      document.addEventListener("DOMContentLoaded", displayResult);
+    </script>
+  </body>
+</html>
