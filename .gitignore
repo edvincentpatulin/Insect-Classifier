@@ -1,6 +1,8 @@
 # Ignore model files
 resources/dataset/*.h5
 resources/dataset/*.txt
+frontend/*.json
+frontend/node_modules
 
 # Ignore virtual environment
 venv/
@@ -19,3 +21,4 @@ venv.bak/
 
 # Ignore dependency files
 requirements.txt
+
